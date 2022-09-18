@@ -10,3 +10,11 @@
         <a href="{% url 'login' %}">Login</a>
     </div>
 {% endif %}
+
+{% load flatpages %}
+{% get_flatpages as flatpages %}
+<ul>
+  {% for page in flatpages|dictsortreversed:"id" %}
+    <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+  {% endfor %}
+</ul>
